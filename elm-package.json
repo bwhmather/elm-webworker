@@ -1,0 +1,15 @@
+{
+    "version": "0.0.1",
+    "summary": "A simple library for spawning and communicating with Web Workers.",
+    "repository": "https://github.com/bwhmather/elm-webworker.git",
+    "license": "BSD3",
+    "source-directories": [
+        "src"
+    ],
+    "exposed-modules": [
+        "WebWorker"
+    ],
+    "dependencies": {
+        "elm-lang/core": "1.0.0 <= v < 2.0.0"
+    }
+}
