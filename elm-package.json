@@ -1,5 +1,5 @@
 {
-    "version": "0.0.1",
+    "version": "1.0.0",
     "summary": "A simple library for spawning and communicating with Web Workers.",
     "repository": "https://github.com/bwhmather/elm-webworker.git",
     "license": "BSD3",
