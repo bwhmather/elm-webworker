@@ -12,16 +12,20 @@ Elm.Native.WebWorker.make = function(localRuntime) {
   var List = Elm.Native.List.make(localRuntime);
 
   function spawn(url, outgoing) {
-    var incoming = NS.input("");
+    var incoming = NS.input({ctor: 'Waiting'});
     var w = new Worker(url);
 
     w.onmessage = function(event) {
-      localRuntime.notify(incoming.id, event.data);
+      localRuntime.notify(incoming.id, {ctor: 'Message', _0: event.data});
+    };
+
+    w.onerror = function(event) {
+      localRuntime.notify(incoming.id, {ctor: 'Error', _0: event.message});
     };
 
     function postMessage(msg) {
-      w.postMessage(msg)
-    }
+      w.postMessage(msg);
+    };
 
     function take1(x,y) { return x }
     return A3(
